@@ -1,26 +1,72 @@
 const fazerCriptografia = (texto) => {
-    // As "chaves" de criptografia que utilizaremos são:
-    // A letra "e" é convertida para "enter"
-    // A letra "i" é convertida para "imes"
-    // A letra "a" é convertida para "ai"
-    // A letra "o" é convertida para "ober"
-    // A letra "u" é convertida para "ufat"
+    processoCriptografia = {
+        "a": "ai",
+        "e": "enter",
+        "i": "imes",
+        "o": "ober",
+        "u": "ufat"
+    }
 
-    // Requisitos:
-    // - Deve funcionar apenas com letras minúsculas
-    // - Não devem ser utilizados letras com acentos nem caracteres especiais
-    // - Deve ser possível converter uma palavra para a versão criptografada e também retornar uma palavra criptografada para a versão original.
+    novoTexto = []
+    texto.split("").map((letra) => {
+        if (["a", "e", "i", "o", "u"].includes(letra)){
+            return novoTexto.push(processoCriptografia[letra])
+        }
+        return novoTexto.push(letra)
+    })
 
-    // Por exemplo:
-    // "gato" => "gaitober"
-    // gaitober" => "gato"
+    return novoTexto.join('')
+}
+
+const fazerDescriptografia = (texto) => {
+    processoDescriptografia = {
+        "a": [2, "ai"],
+        "e": [5, "enter"],
+        "i": [4, "imes"],
+        "o": [4, "ober"],
+        "u": [4, "ufat"]
+    }
+
+    novoTexto = ""
+    
+    indiceAPular = 0
+
+    texto.split("").map((letra, index) => {
+        if (indiceAPular !== 0) {
+            indiceAPular--
+            return
+        }
+        
+        if (["a", "e", "i", "o", "u"].includes(letra)){
+            textoEncriptado = processoDescriptografia[letra][1]
+            indiceFinal = processoDescriptografia[letra][0]
+
+            if (texto.slice(index, (index + indiceFinal)) === textoEncriptado) {
+                indiceAPular = indiceFinal - 1
+                
+                return novoTexto += letra
+            }
+
+            return novoTexto += letra
+        }
+
+        return novoTexto += letra
+    })
+
+
+    return novoTexto
 }
 
 const criptografar = () => {
     texto = document.getElementById('texto').value
-    console.log(texto)
+    novoTexto = fazerCriptografia(texto)
+
+    document.getElementById('textoProcessado').innerText = novoTexto
 }
 
 const descriptografar = () => {
-    
+    textoADescriptografar = document.getElementById('texto').value
+    novoTexto = fazerDescriptografia(textoADescriptografar)
+
+    document.getElementById('textoProcessado').innerText = novoTexto
 }
