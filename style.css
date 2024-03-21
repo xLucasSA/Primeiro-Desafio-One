@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f3f5fc;
+}
+
+#logo {
+    width: 16px;
+    margin: 15px;
+}
+
+#div-logo {
+    width: 15%;
+}
+
+#texto-nao-tratado {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%; 
+}
+
+#texto-nao-tratado textarea {
+    border: none;
+    background-color: #f3f5fc;
+    height: 50%;
+}
+
+#texto-nao-tratado textarea:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+#botoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#botoes button {
+    width: 35%;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#criptografar, #copiar {
+    background-color: #0a3871;
+    color: white;
+}
+
+#descriptografar {
+    background-color: #d8dfe8;
+    color: #0a3871;
+}
+
+.texto-tratado {
+    display: flex;
+    width: 25%;
+    margin: 2%;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.texto-tratado div {
+    margin: auto;   
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 10px;
+    justify-content: center;
+}
+
+#depois-do-tratamento {
+    display: none;
+}
+
+#copiar {
+    height: 30px;
+    width: 160px;
+    border-radius: 8px;
+}
+
+#looking {
+    width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        flex-direction: column;
+        text-align: start;
+    }
+
+    #texto-nao-tratado {
+        height: 400px;
+        width: 100%;
+        padding: 15px;
+    }
+
+    #looking {
+        display: none;
+    }
+
+    .texto-tratado {
+        width: calc(98% - 15px);
+        margin: auto;
+        min-height: 100px;
+        height: auto;
+        padding: 15px;
+    }
+
+    #botoes {
+        width: 100%;
+    }
+    
+    #botoes button {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #botoes {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #botoes button {
+        width: 100%;
+    }
+
+    #div-logo {
+        height: 5vh;
+    }
+
+    #texto-nao-tratado {
+        height: 75vh;
+    }
+}

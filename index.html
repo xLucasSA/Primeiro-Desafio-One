@@ -3,31 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Decodicador</title>
 </head>
 <body>
     <main>
-        <div>Imagem</div>
-        <section>
+        <div id="div-logo">
+            <img src="./imgs/alura.png" alt="Logo Alura" id="logo">
+        </div>
+        <section id="texto-nao-tratado">
             <textarea id="texto" placeholder="Insira o texto aqui"></textarea>
-            <button onclick="criptografar()" >Criptografar</button>
-            <button onclick="descriptografar()" value="cesciptografar">Descriptografar</button>
+            <div id="botoes">
+                <button onclick="criptografar()" id="criptografar">Criptografar</button>
+                <button onclick="descriptografar()" value="cesciptografar" id="descriptografar">Descriptografar</button>
+            </div>
         </section>
-        <section>
+        <section class="texto-tratado" id="antes-do-tratamento">
             <div>
-                <p id="textoProcessado">Aqui vai o texto processado</p>
-                <p>Outra imagem</p>
+                <img src="./imgs/looking.png" alt="Procurando" id="looking">
+                <div id="texto-vazio">
+                    <h3>Nenhuma Mensagem Encontrada</h3>
+                    <p>Digite um texto que você deseja criptografar ou descriptografar</p>
+                </div>
+            </div>
+        </section>
+        <section class="texto-tratado" id="depois-do-tratamento">
+            <div id="acao-executada">
+                <p id="textoProcessado"></p>
+                <!-- <button onclick="copiarTexto()" id="copiar">Copiar</button> -->
             </div>
         </section>
     </main>
-    <footer>
+    <!-- <footer>
         <div>
             Desenvolvido por Lucas Soares de Abreu
         </div>
         <div>
             Redes:
         </div>
-    </footer>
-    <script src="./scripts.js"></script>
+    </footer> -->
+    <script src="scripts.js"></script>
 </body>
 </html>

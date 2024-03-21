@@ -14,7 +14,6 @@ const fazerCriptografia = (texto) => {
         }
         return novoTexto.push(letra)
     })
-
     return novoTexto.join('')
 }
 
@@ -62,6 +61,7 @@ const criptografar = () => {
     novoTexto = fazerCriptografia(texto)
 
     document.getElementById('textoProcessado').innerText = novoTexto
+    removerImagem()
 }
 
 const descriptografar = () => {
@@ -69,4 +69,22 @@ const descriptografar = () => {
     novoTexto = fazerDescriptografia(textoADescriptografar)
 
     document.getElementById('textoProcessado').innerText = novoTexto
+}
+
+const removerImagem = () => {
+    let elementoARemover = document.getElementById('antes-do-tratamento')
+    let novoTexto = document.getElementById('depois-do-tratamento')
+    let texto = document.getElementById('textoProcessado').innerText
+    if (texto.length !== 0 ) {
+        elementoARemover.style.display = "none"
+        novoTexto.style.display = "flex"
+    }
+}
+
+const copiarTexto = () => {
+    let texto = document.getElementById('textoProcessado').innerText 
+
+    if (texto.length !== 0 ) {
+        document.execCommand('copy')
+    }
 }
